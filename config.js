@@ -14,20 +14,20 @@ global.confirmCode = ''
 
 //• ↳𝑺𝑶𝑳𝑶 𝑫𝑬𝑺𝑨𝑹𝑹𝑶𝑳𝑳𝑨𝑫𝑶𝑹𝑬𝑺 𝑨𝑷𝑹𝑶𝑩𝑨𝑫𝑶𝑺
 global.owner = [
-  ['573138954963', '💥 𝗠𝗲𝗴𝘂𝗺𝗶𝗻-𝗕𝗼𝘁 (^_^♪)', true],
-  ['5351524614', '🔥 𝗖𝗿𝗲𝗮𝗱𝗼𝗿 (◣_◢)凸', true],
-  ['573012482597'],
-  ['573218138672'],
-  ['593984964830'],
-  ['5218711426787'],
-  ['5217774603921'],
-  ['50492280729']
+  ['5491170999515', '💥 𝗠𝗲𝗴𝘂𝗺𝗶𝗻-𝗕𝗼𝘁 (^_^♪)', true],
+  ['595975655723', '🔥 𝗖𝗿𝗲𝗮𝗱𝗼𝗿 (◣_◢)凸', true],
+  ['595975655723'],
+  ['595975655723'],
+  ['595975655723'],
+  ['595975655723'],
+  ['595975655723'],
+  ['595975655723']
 ];
 
 //• ↳𝑺𝑶𝑳𝑶 𝑴𝑶𝑫𝑬𝑹𝑨𝑫𝑶𝑹𝑬𝑺!
-global.mods = ['5351524614', '5218711426787', '', '', '']
+global.mods = ['595975655723', '5491170999515', '', '', '']
 
-global.suittag = ['5351524614']
+global.suittag = ['595975655723']
 global.prems = []
 // Cambiar a false para usar el Bot desde el mismo numero del Bot.
 global.isBaileysFail = false
@@ -122,7 +122,7 @@ global.año = d.toLocaleDateString('es', {year: 'numeric'});
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
 global.wm2 = `${dia} ${fecha}\nMegumin - Bot`;
-global.nomorown = '5351524614';
+global.nomorown = '595975655723';
 global.pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf'];
 global.cmenut = '❖––––––『';
 global.cmenub = '┊✦ ';
