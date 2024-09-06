@@ -13,17 +13,17 @@ const require = createRequire(__dirname);
 const { name, description, author, version } = require(join(__dirname, './package.json'));
 const { say } = cfonts;
 const rl = createInterface(process.stdin, process.stdout);
-say('Megumin-Bot', {
+say('Cristal - Bot \nMD', {
 font: 'block',
 align: 'center',
-colors: ['white']
+colors: ['BlueBright', 'cyan']
 });
-say(`Multi Device`, {
+say(`CristalBot-MD Hecho por Maicol / Contact: 595975655723`, {
 font: 'chrome',
 align: 'center',
 colors: ['red']
 });
-say(`Developed By • David-Chian`, {
+say(`Agradecimientos a Iván creador de GokuBlack`, {
 font: 'console',
 align: 'center',
 colors: ['yellow']
