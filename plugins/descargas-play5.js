@@ -15,7 +15,7 @@ let limit_a2 = 400;
 const handler = async (m, { conn, command, args, text, usedPrefix }) => {
   const datas = global;
 
-  if (!text) throw `_* DESCARGAS (￣へ ￣ )*_\n\n*[ ℹ️ ] Hace falta el título o enlace del video de YouTube.*\n\n*[ 💡 ] Ejemplo:* _${usedPrefix + command} Good Feeling - Flo Rida_`;
+  if (!text) throw `_* DESCARGAS*_\n\n*[ ❗ ] Hace falta el título o enlace del video de YouTube.*\n\n*[ 🔦 ] Ejemplo:* _${usedPrefix + command} Good Feeling - Flo Rida_`;
 
   const yt_play = await search(args.join(' '));
   let additionalText = '';
@@ -25,11 +25,11 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
     additionalText = 'vídeo';
   }
 
-  const texto1 = `_*DESCARGAS - MEGUMIN 🔥*_\n╭───────┈♡┈──────\n│𐇵 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${yt_play[0].title}\n│𐇵 *𝑃𝑢𝑏𝑙𝑖𝑐𝑎𝑑𝑜:* ${yt_play[0].ago}\n│𐇵 *𝐷𝑢𝑟𝑎𝑐𝑖𝑜𝑛:* ${secondString(yt_play[0].duration.seconds)}\n│𐇵 *𝑉𝑖𝑠𝑡𝑎𝑠:* ${MilesNumber(yt_play[0].views)}\n│𐇵 *𝐴𝑢𝑡𝑜𝑟:* ${yt_play[0].author.name}\n│𐇵 *𝐼𝐷:* ${yt_play[0].videoId}\n│𐇵 *𝑇𝑖𝑝𝑜:* ${yt_play[0].type}\n│𐇵 *𝐸𝑛𝑙𝑎𝑐𝑒:* ${yt_play[0].url}\n│𐇵 *𝐶𝑎𝑛𝑎𝑙:* ${yt_play[0].author.url}\n╰───────┈♢┈──────\n> *[ ℹ️ ] _𝐒𝐞 𝐞𝐬𝐭𝐚́ 𝐞𝐧𝐯𝐢𝐚𝐧𝐝𝐨 𝐞𝐥 ${additionalText}. 𝐞𝐬𝐩𝐞𝐫𝐞..._`.trim();
+  const texto1 = `_*DESCARGAS - Cristal*_\n╭─── ⋆⋅☆⋅⋆─── ⋆⋅☆⋅⋆ ──\n│𐇵 *Título💽:* ${yt_play[0].title}\n│𐇵 *Publicado🗓️:* ${yt_play[0].ago}\n│𐇵 *Duracion⌛:* ${secondString(yt_play[0].duration.seconds)}\n│𐇵 *Vistas👀:* ${MilesNumber(yt_play[0].views)}\n│𐇵 *𝐴𝑢𝑡𝑜𝑟:* ${yt_play[0].author.name}\n│𐇵 *𝐼𝐷:* ${yt_play[0].videoId}\n│𐇵 *𝑇𝑖𝑝𝑜:* ${yt_play[0].type}\n│𐇵 *𝐸𝑛𝑙𝑎𝑐𝑒:* ${yt_play[0].url}\n│𐇵 *𝐶𝑎𝑛𝑎𝑙:* ${yt_play[0].author.url}\n╰───────┈♢┈──────\n> *[ ❗ ] _Se está  enviando el ${additionalText}. espere..._`.trim();
 
   const externalAdReply = {
-    title: '♡  ͜ ۬︵࣪᷼⏜݊᷼𝘿𝙚𝙨𝙘𝙖𝙧𝙜𝙖𝙨⏜࣪᷼︵۬ ͜ ',
-    body: '<(✿◠‿◠)> 𝙈𝙚𝙜𝙪𝙢𝙞𝙣🔥',
+    title: '🫧𓇼𓏲*ੈ✩‧₊˚🎐▶︎ •၊၊||၊|။||||| 0:10─── ⋆⋅☆⋅⋆ ──',
+    body: 'CristalBot-MD⊂⁠(⁠(⁠・⁠▽⁠・⁠)⁠)⁠⊃',
     sourceUrl: global.cn,
     thumbnail: global.logo7
   };
