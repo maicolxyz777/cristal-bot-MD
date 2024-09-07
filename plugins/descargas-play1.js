@@ -7,15 +7,23 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 if (!text) throw `_𝐄𝐬𝐜𝐫𝐢𝐛𝐞 𝐮𝐧𝐚 𝐩𝐞𝐭𝐢𝐜𝐢𝐨́𝐧 𝐥𝐮𝐞𝐠𝐨 𝐝𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 𝐞𝐣𝐞𝐦𝐩𝐥𝐨:_ \n*${usedPrefix + command} Billie Eilish - Bellyache*`
 try { 
 const yt_play = await search(args.join(' '))
-const texto1 = `╭──────────✰\n
- │🍭 *Título ∙* ${vid.title}\n
- │🕜 *Duración ∙* ${vid.timestamp}\n
- │👁 *Visitas ∙* ${vid.views}\n
- │📚 *Autor ∙* ${vid.author.name}\n
- │📅 *Publicado ∙* ${vid.ago}\n
- │⛓ *Url ∙* ${'https://youtu.be/' + vid.videoId}\n
- ╰──────────✰\n\n
- *↻ Espera @${m.sender.split`@`[0]}, soy lento. . .*`.trim()
+const texto1 = `┏━━━━━━━━━━━━━━━━━
+ ┃ *∘ 📩 ძᥱsᥴᥲrgᥲ* 
+ ${yt_play[0].title} 
+  
+ ┃ *∘ ⏰ ძᥙrᥲᥴі᥆́ᥒ*  
+ ${secondString(yt_play[0].duration.seconds)} 
+  
+ ┃ *∘ 👤 ᥲᥙ𝗍᥆r* 
+ ${yt_play[0].author.name} 
+  
+ ┃ *∘ 📍 ᥴᥲᥒᥲᥣ* 
+ ${yt_play[0].author.url} 
+  
+ ┃ *∘ 📎 ᥣіᥒk* 
+ ${yt_play[0].url} 
+ ┃ *⌚ ENVIANDO ${additionalText}, POR FAVOR  ESPERE.*
+ ┗━━━━━━━━━━━━━━━━━━━━━`.trim()
 
 await conn.sendButton(m.chat, wm, texto1, yt_play[0].thumbnail, [['𝐌 𝐄 𝐍 𝐔 💥', `${usedPrefix}menu`],['🔥 𝗔 𝗨 𝗗 𝗜 𝗢',`${usedPrefix}play5 ${yt_play[0].url}`],['🔥 𝗩 𝗜 𝗗 𝗘 𝗢',`${usedPrefix}play6 ${yt_play[0].url}`]], null, null, fgif2)
 } catch (e) {
