@@ -8,11 +8,11 @@ if (!text) throw `_𝐄𝐬𝐜𝐫𝐢𝐛𝐞 𝐮𝐧𝐚 𝐩𝐞𝐭𝐢�
 try { 
 const yt_play = await search(args.join(' '))
 const texto1 = `╭──────────✰\n
- │🍭 *Título ∙* ${vid.title}\n`
- │🕜 *Duración ∙* ${vid.timestamp}\n`
- │👁 *Visitas ∙* ${vid.views}\n`
- │📚 *Autor ∙* ${vid.author.name}\n`
- │📅 *Publicado ∙* ${vid.ago}\n`
+ │🍭 *Título ∙* ${vid.title}\n
+ │🕜 *Duración ∙* ${vid.timestamp}\n
+ │👁 *Visitas ∙* ${vid.views}\n
+ │📚 *Autor ∙* ${vid.author.name}\n
+ │📅 *Publicado ∙* ${vid.ago}\n
  │⛓ *Url ∙* ${'https://youtu.be/' + vid.videoId}\n
  ╰──────────✰\n\n
  *↻ Espera @${m.sender.split`@`[0]}, soy lento. . .*`.trim()
