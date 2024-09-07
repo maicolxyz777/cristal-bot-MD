@@ -1,263 +1,81 @@
-import { promises } from 'fs'
-import { join } from 'path'
-import fetch from 'node-fetch'
-import { xpRange } from '../lib/levelling.js'
-
-let tags = {
-  'main': '🄸🄽🄵🄾×🄱🄾🅃',
-  'buscador': '🄱🅄🅂🄲🄰🄳🄾🅁🄴🅂',
-  'fun': '🄹🅄🄴🄶🄾🅂',
-  'citaboom': '🄲🄸🅃🄰🄱🄾🄾🄼',  
-  'jadibot': '🅂🄴🅁🄱🄾🅃',
-  'rpg': '×🅁×🄿×🄶×',
-  'rg': '🅁🄴🄶🄸🅂🅃🅁🄾',
-  'xp': '×🄴×🅇×🄿×',
-  'sticker': '🅂🅃🄸🄲🄺🄴🅁🅂',
-  'anime': '🄰🄽🄸🄼🄴🅂',
-  'database': '🄳🄰🅃🄰🄱🄰🅂🄴',
-  'fix': '🄵🄸🅇🄼🄴🄽🅂🄰🄹🄴',
-  'grupo': '🄶🅁🅄🄿🄾🅂',
-  'nable': '🄾🄽 / 🄾🄵🄵', 
-  'descargas': '🄳🄴🅂🄲🄰🅁🄶🄰🅂',
-  'youtube': '🅈🄾🅄🅃🅄🄱🄴',
-  'tools': '🄷🄴🅁🅁🄰🄼🄸🄴🄽🅃🄰🅂',
-  'info': '🄸🄽🄵🄾🅁🄼🄰🄲🄸🄾́🄽',
-  'nsfw': '🄽🅂🄵🅆', 
-  'owner': '🄲🅁🄴🄰🄳🄾🅁', 
-  'mods': '🅂🅃🄰🄵🄵 🄽🄴🄶🅄🄽🄸🄽',
-  'audio': '🄰🅄🄳🄸🄾🅂', 
-  'ai': '×🄰×🄸×',
-  'transformador': '🄲🄾🄽🅅🄴🅁🅃🄸🄳🄾🅁🄴🅂',
-}
-
-const defaultMenu = {
-  before: `.........․⁀⸱⁀⸱︵ ⸌⸃૰⳹․✯․⳼૰⸂⸍︵⸱⁀⸱⁀․........
-𔓕꯭  ꯭ 𓏲꯭֟፝੭ ꯭⌑βIΣΠ∇ΣΠIDΩ⌑꯭ 𓏲꯭֟፝੭ ꯭  ꯭𔓕
-▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭
-
-“ 𝙷𝚘𝚕𝚊 *%name* 𝚂𝚘𝚢 *𝙲𝚛𝚒𝚜𝚝𝚊𝚕 𝙱𝚘𝚝-𝙼𝙳*, %greeting ”
-
-.    ╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬🍧⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮
-╭╼☁️⬪࣪ꥈ𑁍⃪࣭۪ٜ݊݊݊݊݊໑࣪ℂ𝕣𝕚𝕤𝕥𝕒𝕝➫𝔹𝕠𝕥 ➫𝕄𝔻໑⃪࣭۪ٜ݊݊݊݊𑁍ꥈ࣪⬪☁️
-┃֪࣪  ╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬🍧⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯
-├ׁ̟̇❍♕ *𝑪𝒓𝒆𝒂𝒅𝒐𝒓:* maicolxyz777
-├ׁ̟̇❍✎ *𝑴𝒐𝒅𝒐:* Público
-├ׁ̟̇❍✎ *𝑩𝒂𝒊𝒍𝒆𝒚𝒔:* Multi Device
-├ׁ̟̇❍✎ *𝑻𝒊𝒆𝒎𝒑𝒐 𝒂𝒄𝒕𝒊𝒗𝒐:* %muptime
-├ׁ̟̇❍✎ *𝑼𝒔𝒖𝒂𝒓𝒊𝒐𝒔:* %totalreg
-╚▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬▭╝
-
-%readmore
-.    ╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬🍨⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮
-╭╼☁️⬪࣪ꥈ𑁍⃪࣭۪ٜ݊݊݊݊݊໑ٜ࣪ 𝕌𝕊𝕌𝔸ℝ𝕀𝕆໑⃪࣭۪ٜ݊݊݊݊𑁍ꥈ࣪⬪☁️
-┃֪࣪  ╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬🍨⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯
-├ׁ̟̇❍✎ *𝑼𝒔𝒖𝒂𝒓𝒊𝒐:* %name
-├ׁ̟̇❍✎ *𝑬𝑿𝑷:* %exp
-├ׁ̟̇❍✎ *𝑬𝒔𝒕𝒓𝒆𝒍𝒍𝒂𝒔:* %estrellas
-├ׁ̟̇❍✎ *𝑵𝒊𝒗𝒆𝒍:* %level
-├ׁ̟̇❍✎ *𝑹𝒂𝒏𝒈𝒐:* %role
-╚▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬▭╝
-
-%readmore
-*─ׄ─ׄ─⭒─ׄ─ׅ─ׄ⭒─ׄ─ׄ─⭒─ׄ─ׄ─⭒─ׄ─ׅ─*
-
-\t*ℂ 𝕆 𝕄 𝔸 ℕ 𝔻 𝕆 𝕊* 
-`.trimStart(),
-      header: '.    ╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬🔥⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮\n╭╼☁️⬪࣪ꥈ𑁍⃪࣭۪ٜ݊݊݊݊݊໑ٜ࣪ %category ໑⃪࣭۪ٜ݊݊݊݊𑁍ꥈ࣪⬪☁️\n┃֪࣪  ╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬🔥⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯',
-  body: '├ׁ̟̇❍✎ %cmd\n',
-  footer: '╚▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬▭╝\n',
-  after: `> ${dev}`,
-}
-let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
+import fetch from 'node-fetch';
+const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems}) => {
+  if (usedPrefix == 'a' || usedPrefix == 'A') return;
   try {
-    let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
-    let { exp, estrellas, level, role } = global.db.data.users[m.sender]
-    let { min, xp, max } = xpRange(level, global.multiplier)
-    let name = await conn.getName(m.sender)
-    let d = new Date(new Date + 3600000)
-    let locale = 'es'
-    let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
-    let week = d.toLocaleDateString(locale, { weekday: 'long' })
-    let date = d.toLocaleDateString(locale, {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    })
-    let dateIslamic = Intl.DateTimeFormat(locale + '-TN-u-ca-islamic', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    }).format(d)
-    let time = d.toLocaleTimeString(locale, {
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric'
-    })
-    let _uptime = process.uptime() * 1000
-    let _muptime
-    if (process.send) {
-      process.send('uptime')
-      _muptime = await new Promise(resolve => {
-        process.once('message', resolve)
-        setTimeout(resolve, 1000)
-      }) * 1000
+    const pp = imagen6;
+    // let vn = './media/menu.mp3'
+    const img = './Menu2.jpg';
+    const d = new Date(new Date + 3600000);
+    const locale = 'es';
+    const week = d.toLocaleDateString(locale, {weekday: 'long'});
+    const date = d.toLocaleDateString(locale, {day: 'numeric', month: 'long', year: 'numeric'});
+    const _uptime = process.uptime() * 1000;
+    const uptime = clockString(_uptime);
+    const user = global.db.data.users[m.sender];
+    const {money, joincount} = global.db.data.users[m.sender];
+    const {exp, limit, level, role} = global.db.data.users[m.sender];
+    const rtotalreg = Object.values(global.db.data.users).filter((user) => user.registered == true).length;
+    const more = String.fromCharCode(8206);
+    const readMore = more.repeat(850);
+    const url = global.md
+    const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
+    const doc = ['pdf', 'zip', 'vnd.openxmlformats-officedocument.presentationml.presentation', 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    const document = doc[Math.floor(Math.random() * doc.length)];
+    const str = `┏━━━━━━━━━━━━━━━━━━
+┣┅⟣✦ 𝗛𝗼𝗹𝗮👋,𝗦𝗼𝘆 Cristal-Bot-MD 
+┣┅⟣✦ 𝗠𝗲𝗻𝘂 𝗮𝘆𝘂𝗱𝗮/𝗛𝗲𝗹𝗽
+┗━━━━━━━━━━━━━━━━━━┛
+━━━━━━━━━━━━━━━━━━━━
+┣❕𝗦𝗶 𝗱𝗲𝘀𝗽𝘂𝗲𝘀 𝗱𝗲 𝗹𝗲𝗲𝗿 𝗲𝘀𝘁𝗼 𝘀𝗶𝗴𝘂𝗲𝘀 
+𝗰𝗼𝗻 𝗱𝘂𝗱𝗮𝘀, 𝗖𝗼𝗻𝘁𝗮𝗰𝘁𝗮 𝗮 𝗹𝗼𝘀 𝗼𝘄𝗻𝗲𝗿𝘀❕
+━━━━━━━━━━━━━━━━━━━
+┣ 𝗠𝗲𝗻𝘂𝘀 𝗱𝗶𝘀𝗽𝗼𝗻𝗶𝗯𝗹𝗲𝘀 𝘆 𝗮𝘆𝘂𝗱𝗮 
+┏━━━━━━━━━━━━━━━━━━
+┣┅⟣☆ 📔.𝗠𝗲𝗻𝘂𝗼𝘄𝗻𝗲𝗿
+┣┅⟣☆ 🎨.𝗠𝗲𝗻𝘂𝗷𝘂𝗲𝗴𝗼𝘀
+┣┅⟣☆ 🔞.𝗟𝗮𝗯𝗶𝗯𝗹𝗶𝗮
+┣┅⟣☆ 🗒️.𝗠𝗲𝗻𝘂
+┣┅⟣☆ 🧱.𝗖𝗮𝗷𝗮𝗳𝘂𝗲𝗿𝘁𝗲
+┣┅⟣☆ 💖.𝗖𝗼𝗹𝗮𝗯𝗼𝗿𝗮𝗱𝗼𝗿𝗲𝘀
+┣┅⟣☆ 🔮.𝗢𝘄𝗻𝗲𝗿
+┣┅⟣☆ 🛡️.𝗧𝗲𝗿𝗺𝗶𝗻𝗼𝘀
+┣┅⟣☆ 📝.𝗥𝗲𝗴𝗹𝗮𝘀 
+┗━━━━━━━━━━━━━━━━━━┛
+┣ 𝗥𝗲𝗰𝗼𝗿𝗱𝗮𝘁𝗼𝗿𝗶𝗼
+┏━━━━━━━━━━━━━━━━━━
+┣┅⟣☆❕ 𝗨𝘀𝗮 (𝗧𝗿𝘂𝗲 𝗼 𝗙𝗮𝗹𝘀𝗲) 𝗣𝗮𝗿𝗮 𝘃𝗲𝗿 
+ 𝗲𝗹 𝗽𝗮𝗻𝗲𝗹 𝗱𝗲 𝗼𝗽𝗰𝗶𝗼𝗻𝗲𝘀 𝗮 𝗮𝗰𝘁𝗶𝘃𝗮𝗿.
+
+┣┅⟣☆❕ 𝗨𝘀𝗮 (𝗚𝗿𝘂𝗽𝗼𝘀) 𝗽𝗮𝗿𝗮 𝘃𝗲𝗿 𝗹𝗼𝘀
+ 𝗴𝗿𝘂𝗽𝗼𝘀 𝗢𝗙𝗖 𝗱𝗲𝗹 𝗯𝗼𝘁.
+
+┣┅⟣☆❕ 𝗨𝘀𝗮 (𝗜𝗻𝗳𝗼𝗯𝗼𝘁) 𝗽𝗮𝗿𝗮 𝘃𝗲𝗿 𝗹𝗼𝘀
+ 𝗱𝗮𝘁𝗼𝘀 𝘀𝗼𝗯𝗿𝗲 𝗲𝗹 𝗯𝗼𝘁.
+
+┣┅⟣☆❕ 𝗨𝘀𝗮 (𝗝𝗼𝗶𝗻) 𝗽𝗮𝗿𝗮 𝘀𝗼𝗹𝗶𝗰𝗶𝘁𝗮𝗿 𝗲𝗹 𝗯𝗼𝘁
+ 𝗲𝗻 𝘁𝘂 𝗴𝗿𝘂𝗽𝗼.
+┗━━━━━━━━━━━━━━━━━━┛
+ `.trim();
+    if (m.isGroup) {
+      // await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})
+      const fkontak2 = {'key': {'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': 'Halo'}, 'message': {'contactMessage': {'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'};
+      conn.sendMessage(m.chat, {image: pp, caption: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net')}, {quoted: m});
+    } else {
+      // await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})
+      const fkontak2 = {'key': {'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': 'Halo'}, 'message': {'contactMessage': {'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'};
+      conn.sendMessage(m.chat, {image: pp, caption: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net')}, {quoted: fkontak2});
     }
-    let muptime = clockString(_muptime)
-    let uptime = clockString(_uptime)
-    let totalreg = Object.keys(global.db.data.users).length
-    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
-    let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => {
-      return {
-        help: Array.isArray(plugin.tags) ? plugin.help : [plugin.help],
-        tags: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
-        prefix: 'customPrefix' in plugin,
-        estrellas: plugin.estrellas,
-        premium: plugin.premium,
-        enabled: !plugin.disabled,
-      }
-    })
-    for (let plugin of help)
-      if (plugin && 'tags' in plugin)
-        for (let tag of plugin.tags)
-          if (!(tag in tags) && tag) tags[tag] = tag
-    conn.menu = conn.menu ? conn.menu : {}
-    let before = conn.menu.before || defaultMenu.before
-    let header = conn.menu.header || defaultMenu.header
-    let body = conn.menu.body || defaultMenu.body
-    let footer = conn.menu.footer || defaultMenu.footer
-    let after = conn.menu.after || (conn.user.jid == conn.user.jid ? '' : `Powered by https://wa.me/${conn.user.jid.split`@`[0]}`) + defaultMenu.after
-    let _text = [
-      before,
-      ...Object.keys(tags).map(tag => {
-        return header.replace(/%category/g, tags[tag]) + '\n' + [
-          ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
-            return menu.help.map(help => {
-              return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%isdiamond/g, menu.diamond ? '(ⓓ)' : '')
-                .replace(/%isPremium/g, menu.premium ? '(Ⓟ)' : '')
-                .trim()
-            }).join('\n')
-          }),
-          footer
-        ].join('\n')
-      }),
-      after
-    ].join('\n')
-    let text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
-let replace = {
-'%': '%',
-p: _p, uptime, muptime,
-me: conn.getName(conn.user.jid),
-taguser: '@' + m.sender.split("@s.whatsapp.net")[0],
-npmname: _package.name,
-npmdesc: _package.description,
-version: _package.version,
-exp: exp - min,
-maxexp: xp,
-botofc: (conn.user.jid == global.conn.user.jid ? '🚩 𝙴𝚂𝚃𝙴 𝙴𝚂 𝙴𝙻 𝙱𝙾𝚃 𝙾𝙵𝙲' : `🚩 𝚂𝚄𝙱-𝙱𝙾𝚃 𝙳𝙴: Wa.me/${global.conn.user.jid.split`@`[0]}`), 
-totalexp: exp,
-xp4levelup: max - exp,
-github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
-greeting, level, estrellas, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
-readmore: readMore
-}
-text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-
-const who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-
-const pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/327f6ad853cb4f405aa80.jpg')
-
-  let category = "video"
-  const db = './media/database/db.json'
-  const db_ = JSON.parse(fs.readFileSync(db))
-  const random = Math.floor(Math.random() * db_.links[category].length)
-  const rlink = db_.links[category][random]
-  global.vid = rlink
-  const response = await fetch(vid)
-  const gif = await response.buffer()
- // const img = imagen1
-
-/*await conn.reply(m.chat, '╭ׅׄ̇─ׅ̻ׄ╮۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹*\n├ ⚘݄𖠵⃕⁖𖥔.Ƈᴀʀɢᴀɴᴅᴏ,  ꪶꪾ❍̵̤̂̂ꫂ\n├Ąɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ❞\n╰ׁ̻─ׅׄ─۪۬─۟─۪─۟─۪۬─۟─۪─۟─۪۬─۟─۪─۟┄۪۬┄۟┄۪┈۟┈۪', m, { contextInfo:{ forwardingScore: 2024, isForwarded: true, externalAdReply: {title: namechannel, body: '𝐃𝐞𝐯 𝐖𝐨𝐫𝐝 𝐓𝐞𝐚𝐦 𝐎𝐟𝐢𝐜𝐢𝐚𝐥', sourceUrl: channel, thumbnail: icons }}})*/
-
-// await conn.reply(m.chat, '🍟 Enviando el menú.....', m, rcanal)
-
-await m.react('✨') 
-
-//await conn.sendFile(m.chat, imagen1, 'yaemori.jpg', text.trim(), fkontak, null, rcanal)
-
-await conn.sendMessage(
-  m.chat,
-  { video: { url: vid }, caption: text.trim(),
-  contextInfo: {
-    mentionedJid: [m.sender],
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363315412997601@newsletter',
-      newsletterName: '⏤͟͞ू⃪ ፝͜⁞TEAM Multi Bots Developer✰⃔࿐/ᥫᩣᎠ꯭I𝚫⃥꯭M꯭Ꭷ꯭Ꮑ꯭Ꭰ࠭⋆̟(◣_◢)凸',
-      serverMessageId: -1,
-    },
-    forwardingScore: 999,
-    externalAdReply: {
-      title: '⏤͟͞ू⃪ ፝͜⁞M͢ᴇɢ፝֟ᴜᴍ⃨ɪɴ⃜✰⃔࿐',
-      body: dev,
-      thumbnailUrl: icono,
-      sourceUrl: redes,
-      mediaType: 1,
-      renderLargerThumbnail: false,
-    },
-  },
-
-  gifPlayback: true, gifAttribution: 0 },
-  { quoted: fkontak })
-
-  } catch (e) {
-    conn.reply(m.chat, '🔵 Lo sentimos, el menú tiene un error', m, rcanal, )
-    throw e
+  } catch {
+    conn.reply(m.chat, '[❕] 𝗔𝗹𝗴𝗼 𝘀𝗮𝗹𝗶𝗼 𝗺𝗮𝗹, 𝗽𝗼𝗿 𝗳𝗮𝘃𝗼𝗿 𝗿𝗲𝗽𝗼𝗿𝘁𝗲𝗹𝗼 𝗮𝗹 𝗦𝘁𝗮𝗳𝗳', m);
   }
-}
-handler.help = ['menu']
-handler.tags = ['main']
-handler.command = ['menu', 'menú', 'menuall', 'allmenú', 'allmenu', 'menucompleto'] 
-handler.register = true
-
-export default handler
-
-const more = String.fromCharCode(8206)
-const readMore = more.repeat(4001)
-
+};
+handler.command = /^(help|ayuda)$/i;
+handler.exp = 50;
+handler.fail = null;
+export default handler;
 function clockString(ms) {
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
+  const h = isNaN(ms) ? '--' : Math.floor(ms / 3600000);
+  const m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
+  const s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
+  return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(':');
 }
-
-  var ase = new Date();
-  var hour = ase.getHours();
-switch(hour){
-  case 0: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌙'; break;
-  case 1: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 💤'; break;
-  case 2: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🦉'; break;
-  case 3: hour = 'Bᴜᴇɴᴏs Dɪᴀs ✨'; break;
-  case 4: hour = 'Bᴜᴇɴᴏs Dɪᴀs 💫'; break;
-  case 5: hour = 'Bᴜᴇɴᴏs Dɪᴀs 🌅'; break;
-  case 6: hour = 'Bᴜᴇɴᴏs Dɪᴀs 🌄'; break;
-  case 7: hour = 'Bᴜᴇɴᴏs Dɪᴀs 🌅'; break;
-  case 8: hour = 'Bᴜᴇɴᴏs Dɪᴀs 💫'; break;
-  case 9: hour = 'Bᴜᴇɴᴏs Dɪᴀs ✨'; break;
-  case 10: hour = 'Bᴜᴇɴᴏs Dɪᴀs 🌞'; break;
-  case 11: hour = 'Bᴜᴇɴᴏs Dɪᴀs 🌨'; break;
-  case 12: hour = 'Bᴜᴇɴᴏs Dɪᴀs ❄'; break;
-  case 13: hour = 'Bᴜᴇɴᴏs Dɪᴀs 🌤'; break;
-  case 14: hour = 'Bᴜᴇɴᴀs Tᴀʀᴅᴇs 🌇'; break;
-  case 15: hour = 'Bᴜᴇɴᴀs Tᴀʀᴅᴇs 🥀'; break;
-  case 16: hour = 'Bᴜᴇɴᴀs Tᴀʀᴅᴇs 🌹'; break;
-  case 17: hour = 'Bᴜᴇɴᴀs Tᴀʀᴅᴇs 🌆'; break;
-  case 18: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌙'; break;
-  case 19: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌃'; break;
-  case 20: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌌'; break;
-  case 21: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌃'; break;
-  case 22: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌙'; break;
-  case 23: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌃'; break;
-}
-  var greeting = hour;
