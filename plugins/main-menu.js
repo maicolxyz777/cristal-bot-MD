@@ -193,7 +193,7 @@ await conn.sendMessage(
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
       newsletterJid: '120363315412997601@newsletter',
-      newsletterName: '⏤͟͞ू⃪ ፝͜⁞M͢ᴇɢ፝֟ᴜᴍ⃨ɪɴ⃜✰⃔࿐/ᥫᩣᎠ꯭I𝚫⃥꯭M꯭Ꭷ꯭Ꮑ꯭Ꭰ࠭⋆̟(◣_◢)凸',
+      newsletterName: '⏤͟͞ू⃪ ፝͜⁞TEAM Multi Bots Developer✰⃔࿐/ᥫᩣᎠ꯭I𝚫⃥꯭M꯭Ꭷ꯭Ꮑ꯭Ꭰ࠭⋆̟(◣_◢)凸',
       serverMessageId: -1,
     },
     forwardingScore: 999,
