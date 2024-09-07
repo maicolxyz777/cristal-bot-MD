@@ -15,7 +15,7 @@ let limit_a2 = 400;
 const handler = async (m, { conn, command, args, text, usedPrefix }) => {
   const datas = global;
 
-  if (!text) throw `_* DESCARGAS*_\n\n*[ ❗ ] Hace falta el título o enlace del video de YouTube.*\n\n*[ 🔦 ] Ejemplo:* _${usedPrefix + command} Good Feeling - Flo Rida_`;
+  if (!text) throw `_* DESCARGAS*_\n\n*[ ❗ ] Hace falta el título o enlace del video de YouTube.*\n\n*[ 🔦 ] Ejemplo:* _${usedPrefix + command} Vaicocota - Skort_`;
 
   const yt_play = await search(args.join(' '));
   let additionalText = '';
