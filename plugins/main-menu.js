@@ -182,7 +182,7 @@ const pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegr
 
 // await conn.reply(m.chat, '🍟 Enviando el menú.....', m, rcanal)
 
-await m.react('✅') 
+await m.react('✨') 
 
 //await conn.sendFile(m.chat, imagen1, 'yaemori.jpg', text.trim(), fkontak, null, rcanal)
 
