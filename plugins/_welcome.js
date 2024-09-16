@@ -21,7 +21,7 @@ await conn.sendMini(m.chat, packname, dev, bye, img2, img2, channel, fkontak)
   }
 
   if (chat.welcome && m.messageStubType == 32) {
-    let kick = ` ┌─★ 𝙼𝚒𝚗𝚊𝚝𝚘𝙱𝚘𝚝-𝙼𝙳 ✨️\n │「 𝗔𝗗𝗜𝗢𝗦 𝗜𝗡𝗦𝗘𝗖𝗧𝗢 😹 」\n └┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │🔮  𝗘𝘅𝗽𝘂𝗹𝘀𝗮𝗱𝗼 \n   │🔮 *_Quien Te DIjo Que Mandes Links?_*\n   └───────────────┈ ⳹`
+    let kick = ` ┌─★ ᴄʀɪsᴛᴀʟʙᴏᴛ-ᴍᴅ ✨️\n │「 𝗔𝗗𝗜𝗢𝗦 𝗜𝗡𝗦𝗘𝗖𝗧𝗢 😹 」\n └┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │🔮  𝗘𝘅𝗽𝘂𝗹𝘀𝗮𝗱𝗼 \n   │🔮 *_Quien Te DIjo Que Mandes Links?_*\n   └───────────────┈ ⳹`
 await conn.sendMini(m.chat, packname, dev, kick, img2, img2, channel, fkontak)
 }}
 
