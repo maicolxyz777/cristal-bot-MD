@@ -37,7 +37,7 @@ global.titulowm2 = `͟͞ ৎ୭࠭͢💥͟𝑬̶𝒙͞𝒑͟𝒍𝒐̶𝒔̅�
 global.igfg = 'ᥫᩣ⋆̟(◣_◢)凸'
 global.botname = '⏤͟͞ू⃪ ፝͜⁞TEAM CRISTALBOT-MD✰⃔࿐'
 global.dev = '🔥 TEAM CRISTALBOT-MD ⚡︎'
-global.textbot = '⏤͟͞ू⃪ ፝͜⁞CRISTALBOT-MD✰⃔࿐ : ᥫᩣᎠ꯭I𝚫⃥꯭M꯭Ꭷ꯭Ꮑ꯭Ꭰ࠭⋆̟(◣_◢)凸'
+global.textbot = '⏤͟͞ू⃪ ፝͜⁞CRISTALBOT-MD✰⃔࿐ : ᥫᩣ(◣_◢)凸'
 global.gt = '͟͞ ৎ୭࠭͢💥͟𝑬̶𝒙͞𝒑͟𝒍𝒐̶𝒔̅𝒊͟𝒐́𝒏̶🔥̤𓆪 ͟͞';
 global.namechannel = '⏤͟͞ू⃪ ፝͜⁞CRISTALBOT-MD✰⋆̟(◣_◢)凸'
 global.vs = '3.0.2'
@@ -93,13 +93,13 @@ global.fakegif4 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remote
 global.fgif2 = { key: {participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: {"videoMessage": { "title":`͟͞ 𓆩ꪶꪾ𝘿᪶𝙞ᷨ𝙖ᷞ𝙢ͣ𝙤᪶ͨ𝙣ᷜ𝙙ꫂৎ୭࠱࠭ ͟͞`, "h": `Hmm`,'seconds': '99999', 'gifPlayback': 'true', 'caption': `⏤͟͞ू⃪ ፝͜⁞M͢ᴇɢ፝֟ᴜᴍ⃨ɪɴ⃜✰⃔࿐\n  ͟͞ 𓆩ꪶꪾ𝘿᪶𝙞ᷨ𝙖ᷞ𝙢ͣ𝙤᪶ͨ𝙣ᷜ𝙙ꫂৎ୭࠱࠭ ͟͞`, 'jpegThumbnail': logo4 }}}
 
 //• ↳ ◜𝑳𝑰𝑵𝑲𝑺◞ • 🌿
-global.gp4 = 'https://chat.whatsapp.com/H5bw4MJucS1BBHnZ9wv3vI' //Grupo Oficial De Megumin
-global.gp1 = 'https://chat.whatsapp.com/J9gyFJLbhVIJXaUZlpo8Xt' //Grupo 
-global.gp2 = 'https://chat.whatsapp.com/LJKcR8QBJgu37bVFWuhRVn'//
-global.comunidad1 = 'https://chat.whatsapp.com/GPEtINYPyIB6a6S55ZJcAO' //Comunidad Megumin
-global.channel = 'https://whatsapp.com/channel/0029VacDy0R6hENqnTKnG820' //Canal Oficial
+global.gp4 = 'https://chat.whatsapp.com/CvjnRxCvHqJE00CTrHGF3Y' //Grupo Oficial De Cristal-bot-MD
+global.gp1 = 'https://chat.whatsapp.com/K6NygjTQAxyHTLvVhu91Fh' //Grupo 
+global.gp2 = 'https://chat.whatsapp.com/B989oWTkzPbFsmZLa6xjCE'//
+global.comunidad1 = 'https://chat.whatsapp.com/GSkWF4ZhJASKVE0njs2UtN' //Comunidad Cristal-bot-MD
+global.channel = 'https://whatsapp.com/channel/0029VajKFjlJJhzU8fvTPn2L' //Canal Oficial
 global.yt = 'https://youtube.com/@davidchian4957' //Canal De Youtube
-global.md = 'https://github.com/David-Chian/Megumin-Bot-MD' //Github Oficial
+global.md = 'https://github.com/maicolxyz777/cristal-bot-MD' //Github Oficial
 global.correo = 'noisebot@gmail.com'
 global.cn ='https://whatsapp.com/channel/0029VacDy0R6hENqnTKnG820';
 
