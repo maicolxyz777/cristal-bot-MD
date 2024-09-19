@@ -45,7 +45,7 @@ const defaultMenu = {
 ├ׁ̟̇❍✎ *𝑩𝒂𝒊𝒍𝒆𝒚𝒔:* Multi Device
 ├ׁ̟̇❍✎ *𝑻𝒊𝒆𝒎𝒑𝒐 𝒂𝒄𝒕𝒊𝒗𝒐:* %muptime
 ├ׁ̟̇❍✎ *𝑼𝒔𝒖𝒂𝒓𝒊𝒐𝒔:* %totalreg
-├ׁ̟̇❍✎ *Owner2:*+595972157130
+├ׁ̟̇❍✎ *Owner2:*maicolxyz777
 ╚▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬▭╝
 
 %readmore
@@ -180,7 +180,7 @@ const pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegr
 
 /*await conn.reply(m.chat, '╭ׅׄ̇─ׅ̻ׄ╮۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹*\n├ ⚘݄𖠵⃕⁖𖥔.Ƈᴀʀɢᴀɴᴅᴏ,  ꪶꪾ❍̵̤̂̂ꫂ\n├Ąɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ❞\n╰ׁ̻─ׅׄ─۪۬─۟─۪─۟─۪۬─۟─۪─۟─۪۬─۟─۪─۟┄۪۬┄۟┄۪┈۟┈۪', m, { contextInfo:{ forwardingScore: 2024, isForwarded: true, externalAdReply: {title: namechannel, body: '𝐃𝐞𝐯 𝐖𝐨𝐫𝐝 𝐓𝐞𝐚𝐦 𝐎𝐟𝐢𝐜𝐢𝐚𝐥', sourceUrl: channel, thumbnail: icons }}})*/
 
-// await conn.reply(m.chat, '🍟 Enviando el menú.....', m, rcanal)
+// await conn.reply(m.chat, '🇦🇷 Enviando el menú.....', m, rcanal)
 
 await m.react('✨') 
 
@@ -194,12 +194,12 @@ await conn.sendMessage(
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
       newsletterJid: '120363315412997601@newsletter',
-      newsletterName: '⏤͟͞ू⃪ ፝͜⁞M͢ᴇɢ፝֟ᴜᴍ⃨ɪɴ⃜✰⃔࿐/ᥫᩣᎠ꯭I𝚫⃥꯭M꯭Ꭷ꯭Ꮑ꯭Ꭰ࠭⋆̟(◣_◢)凸',
+      newsletterName: '⏤͟͞ू⃪ ፝͜⁞CRISTALBOT-MD✰⃔࿐⋆̟(◣_◢)凸',
       serverMessageId: -1,
     },
     forwardingScore: 999,
     externalAdReply: {
-      title: '⏤͟͞ू⃪ ፝͜⁞M͢ᴇɢ፝֟ᴜᴍ⃨ɪɴ⃜✰⃔࿐',
+      title: '⏤͟͞ू⃪ ፝͜⁞CRISTALBOT-MD✰⃔࿐',
       body: dev,
       thumbnailUrl: icono,
       sourceUrl: redes,
