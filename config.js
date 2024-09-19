@@ -17,7 +17,7 @@ global.owner = [
   ['595992809980', '👑Elias👑', true],
   ['595975655723', '𝗖𝗿𝗲𝗮𝗱𝗼𝗿', true],
   ['595972157130', 'Ivan', true]],
-  ['54 9 260 403-5392', '𝗖RISTAL COLABORADOR 1', true]
+  ['5492604035392', '𝗖RISTAL COLABORADOR 1', true]
 
 //• ↳𝑺𝑶𝑳𝑶 𝑴𝑶𝑫𝑬𝑹𝑨𝑫𝑶𝑹𝑬𝑺!
 global.mods = ['595975655723', '595972157130', '', '', '']
@@ -35,11 +35,11 @@ global.wm = 'ৎ୭࠭͢𝑴𝒆̤𝒈𝒖̣֟፝֯𝒎̤𝒊̣𝒏🔥̤ʙⷪ�
 global.titulowm = '͟͞ ৎ୭࠭͢💥͟𝑬̶𝒙͞𝒑͟𝒍𝒐̶𝒔̅𝒊͟𝒐́𝒏̶🔥̤𓆪 ͟͞';
 global.titulowm2 = `͟͞ ৎ୭࠭͢💥͟𝑬̶𝒙͞𝒑͟𝒍𝒐̶𝒔̅𝒊͟𝒐́𝒏̶🔥̤𓆪 ͟͞`
 global.igfg = 'ᥫᩣᎠ꯭I𝚫⃥꯭M꯭Ꭷ꯭Ꮑ꯭Ꭰ࠭⋆̟(◣_◢)凸'
-global.botname = '⏤͟͞ू⃪ ፝͜⁞M͢ᴇɢ፝֟ᴜᴍ⃨ɪɴ⃜✰⃔࿐'
-global.dev = '🔥 Powered By Sunlight Team ⚡︎'
-global.textbot = '⏤͟͞ू⃪ ፝͜⁞M͢ᴇɢ፝֟ᴜᴍ⃨ɪɴ⃜✰⃔࿐ : ᥫᩣᎠ꯭I𝚫⃥꯭M꯭Ꭷ꯭Ꮑ꯭Ꭰ࠭⋆̟(◣_◢)凸'
+global.botname = '⏤͟͞ू⃪ ፝͜⁞TEAM CRISTALBOT-MD✰⃔࿐'
+global.dev = '🔥 TEAM CRISTALBOT-MD ⚡︎'
+global.textbot = '⏤͟͞ू⃪ ፝͜⁞CRISTALBOT-MD✰⃔࿐ : ᥫᩣᎠ꯭I𝚫⃥꯭M꯭Ꭷ꯭Ꮑ꯭Ꭰ࠭⋆̟(◣_◢)凸'
 global.gt = '͟͞ ৎ୭࠭͢💥͟𝑬̶𝒙͞𝒑͟𝒍𝒐̶𝒔̅𝒊͟𝒐́𝒏̶🔥̤𓆪 ͟͞';
-global.namechannel = '⏤͟͞ू⃪ ፝͜⁞M͢ᴇɢ፝֟ᴜᴍ⃨ɪɴ⃜✰⃔࿐/ᥫᩣᎠ꯭I𝚫⃥꯭M꯭Ꭷ꯭Ꮑ꯭Ꭰ࠭⋆̟(◣_◢)凸'
+global.namechannel = '⏤͟͞ू⃪ ፝͜⁞CRISTALBOT-MD✰⋆̟(◣_◢)凸'
 global.vs = '3.0.2'
 
 
