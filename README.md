@@ -157,4 +157,4 @@ href="https://github.com/David-Chian"><img src="https://github.com/David-Chian.p
 <a
 href="https://github.com/GataNina-Li"><img src="https://github.com/GataNina-Li.png" width="130" height="130" alt="GataDios"/></a>
 
-[© Powered By Sunlight Team ⚡︎](https://whatsapp.com/channel/0029Vam7yUg77qVaz3sIAp0z)
+[© Powered By TEAM CRISTALBOT-MD⚡︎](https://whatsapp.com/channel/0029VajKFjlJJhzU8fvTPn2L)
