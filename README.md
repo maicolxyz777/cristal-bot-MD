@@ -142,8 +142,17 @@ Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
 | WhatsApp | Canal Sunlight | [¡Click aquí!](https://whatsapp.com/channel/0029Vam7yUg77qVaz3sIAp0z) |
 | WhatsApp | Gc Sunlight | [¡Click aquí!](https://chat.whatsapp.com/Fy74b6fgE9SJJpHVi6CKJY) |
 
----
+### **`TK HOST 📲`**
+<a href="https://dash.tk-joanhost.com"><img src="https://i.ibb.co/pr8TnWJ/SAVE-20240915-183758.jpg" height="125px"></a>
 
+<details>
+ <summary><b>:paperclip: Enlaces Importantes</b></summary>
+
+- **Dashboard:** [`Aquí`](https://dash.tk-joanhost.com)
+- **Panel:** [`Aquí`](https://panel.tk-joanhost.com)
+- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VaoZXbk6RGJNYQVP8r27)
+
+</details>
 ### **`🌴 COLABORADORES`**
 <a href="https://github.com/David-Chian/Megumin-Bot-MD/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=David-Chian/Megumin-Bot-MD" /> 
